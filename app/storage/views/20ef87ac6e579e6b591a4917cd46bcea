@@ -1,0 +1,12 @@
+<?php if($errors->has()): ?>
+<div class="alert alert-danger">
+  <a class="close" href="#" data-dismiss="alert">x</a>
+  <h4 class="alert-heading">Uh Oh!</h4>
+  <ul>
+    <?php foreach($errors->all('<li>:message</li>') as $message): ?>
+    <?php echo $message; ?>
+
+    <?php endforeach; ?>
+  </ul>
+</div>
+<?php endif; ?>

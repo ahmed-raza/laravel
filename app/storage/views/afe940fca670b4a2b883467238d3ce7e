@@ -1,0 +1,25 @@
+<?php $__env->startSection('content'); ?>
+
+  <div class="row">
+    <div class="span4 offset4">
+      <div class="well">
+        <legend>Please Register</legend>
+        <?php echo Form::open(array('url'=>'register/user', 'method'=>'POST')); ?>
+
+        <?php echo Form::text('username', '', array('class'=>'span3', 'placeholder'=>'Username')); ?>
+
+        <?php echo Form::text('email', '', array('class'=>'span3', 'placeholder'=>'Email')); ?>
+
+        <?php echo Form::password('password', array('class'=>'span3', 'placeholder'=>'Password')); ?>
+
+        <?php echo Form::submit('Register', array('class'=>'btn btn-warning')); ?>
+
+        <?php echo Form::close(); ?>
+
+      </div>
+    </div>
+  </div>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

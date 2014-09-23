@@ -1,0 +1,32 @@
+<?php $__env->startSection('content'); ?>
+
+  <h2>Edit <?php echo $authors->name; ?>'s Profile</h2>
+
+  <?php echo Form::open(array('url'=>'author/updated', 'method'=>'POST')); ?>
+
+  <p>
+    <?php echo Form::hidden('id', $authors->id); ?>
+
+    <?php echo Form::label('name', 'Name:'); ?>
+
+    <?php echo Form::text('name', $authors->name, array('placeholder'=>'Author name')); ?>
+
+  </p>
+  <p>
+    <?php echo Form::label('bio', 'Biography:'); ?>
+
+    <?php echo Form::textarea('bio', $authors->bio, array('placeholder'=>'Author biography')); ?>
+
+  </p>
+  <p>
+    <?php echo Form::submit('Edit Author', array('class'=>'btn btn-success')); ?>
+
+    <?php echo HTML::link('profile', 'Go back', array('class'=>'btn btn-warning')); ?>
+
+  </p>
+  <?php echo Form::close(); ?>
+
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,10 @@
+<?php $__env->startSection('content'); ?>
+
+  <div class="alert alert-danger">
+    <h4 class="alert-heading">Error 404</h4>
+    <p>Requested page not found on this server.</p>
+  </div>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

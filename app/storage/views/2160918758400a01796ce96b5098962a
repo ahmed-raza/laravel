@@ -1,0 +1,17 @@
+<?php $__env->startSection('content'); ?>
+
+  <div class="row">
+    <div class="span6 well">
+      Welcome to your profile page <?php echo Auth::user()->username; ?>.
+    </div>
+  </div>
+    <p>You can:</p>
+    <ul>
+      <li><?php echo HTML::link('author/new', 'Add Author'); ?></li>
+      <li>Edit Author</li>
+      <li>Delete Author</li>
+    </ul>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

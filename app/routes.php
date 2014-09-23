@@ -1,0 +1,29 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Application Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register all of the routes for an application.
+| It's a breeze. Simply tell Laravel the URIs it should respond to
+| and give it the Closure to execute when that URI is requested.
+|
+*/
+
+
+Route::get('/', array('as'=>'index', 'uses'=>'LoginController@index'));
+Route::get('login', array('as'=>'login', 'uses'=>'LoginController@login'));
+Route::post('login/user', array('uses'=>'LoginController@loginUser'));
+Route::get('register', array('as'=>'reg', 'uses'=>'LoginController@register'));
+Route::post('register/user', array('uses'=>'LoginController@registerUser'));
+Route::get('profile', array('as'=>'profile', 'uses'=>'LoginController@profile'));
+Route::get('logout', array('as'=>'logout', 'uses'=>'LoginController@logout'));
+
+Route::get('author/new', array('as'=>'new', 'uses'=>'AuthorController@add'));
+Route::post('author/add', array('before'=>'csrf', 'uses'=>'AuthorController@added'));
+Route::get('author/{id}', array('as'=>'authPro', 'uses'=>'AuthorController@profile'));
+Route::post('author/update', array('as'=>'update', 'uses'=>'AuthorController@update'));
+Route::post('author/updated', array('as'=>'updated', 'uses'=>'AuthorController@updated'));
+Route::post('author/delete', array('before'=>'csrf', 'uses'=>'AuthorController@delete'));
+Route::post('author/deleted', array('before'=>'csrf', 'uses'=>'AuthorController@deleted'));

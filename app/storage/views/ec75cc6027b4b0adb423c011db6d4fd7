@@ -1,0 +1,19 @@
+<?php $__env->startSection('content'); ?>
+
+  <h2>Delete Author</h2>
+  <p>Are you sure you want to delete <i><strong><?php echo $authors->name; ?></strong></i>. This action cannot be undone. </p>
+
+  <?php echo Form::open(array('url'=>'author/deleted', 'method'=>'post')); ?>
+
+    <?php echo Form::hidden('id', $authors->id); ?>
+
+    <?php echo Form::submit('Delete', array('class'=>'btn btn-danger')); ?>
+
+    <?php echo HTML::link('author/'.$authors->id, 'Go back', array('class'=>'btn btn-warning')); ?>
+
+  <?php echo Form::close(); ?>
+
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

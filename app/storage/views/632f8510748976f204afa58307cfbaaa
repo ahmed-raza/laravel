@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><?php echo $title; ?></title>
+  <?php echo HTML::style('css/bootstrap.css'); ?>
+
+  <?php echo HTML::script('js/bootstrap.js'); ?>
+
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <?php echo HTML::link('/', 'Laravel Login Model', array('class'=>'brand')); ?>
+
+      <ul class="nav pull-right">
+          <li><?php echo HTML::link('/', 'Home'); ?></li>
+        <?php if(Auth::user()): ?>
+          <li><?php echo HTML::link('profile', 'Profile'); ?></li>
+          <li><?php echo HTML::link('logout', 'Logout'); ?></li>
+        <?php else: ?>
+          <li><?php echo HTML::link('login', 'Login'); ?></li>
+        <?php endif; ?>
+      </ul>
+    </div>
+  </div>
+  <div class="container">
+    <?php echo $__env->make('plugins.plugin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php if(Session::has('message')): ?>
+      <div class="alert alert-success"><?php echo Session::get('message'); ?></div>
+    <?php endif; ?>
+    <?php echo $__env->yieldContent('content'); ?>
+  </div>
+</body>
+</html>
