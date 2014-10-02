@@ -21,7 +21,7 @@
   <p>
     <?php echo Form::submit('Edit Author', array('class'=>'btn btn-success')); ?>
 
-    <?php echo HTML::link('profile', 'Go back', array('class'=>'btn btn-warning')); ?>
+    <?php echo HTML::link('author/'.$authors->id, 'Go back', array('class'=>'btn btn-warning')); ?>
 
   </p>
   <?php echo Form::close(); ?>

@@ -27,3 +27,8 @@ Route::post('author/update', array('as'=>'update', 'uses'=>'AuthorController@upd
 Route::post('author/updated', array('as'=>'updated', 'uses'=>'AuthorController@updated'));
 Route::post('author/delete', array('before'=>'csrf', 'uses'=>'AuthorController@delete'));
 Route::post('author/deleted', array('before'=>'csrf', 'uses'=>'AuthorController@deleted'));
+
+Route::get('blog', array('as'=>'blog', 'uses'=>'BlogController@index'));
+Route::get('blog/new', array('as'=>'bnew', 'uses'=>'BlogController@bnew'));
+Route::post('blog/add', array('before'=>'csrf', 'uses'=>'BlogController@badd'));
+Route::get('blog/post/{id}', array('as'=>'bpage', 'uses'=>'BlogController@bpage'));

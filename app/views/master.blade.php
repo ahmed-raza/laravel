@@ -12,6 +12,7 @@
       {{ HTML::link('/', 'Laravel Login Model', array('class'=>'brand')) }}
       <ul class="nav pull-right">
           <li>{{ HTML::link('/', 'Home') }}</li>
+          <li>{{ HTML::link('blog', 'Blog') }}</li>
         @if(Auth::user())
           <li>{{ HTML::link('profile', 'Profile') }}</li>
           <li>{{ HTML::link('logout', 'Logout') }}</li>

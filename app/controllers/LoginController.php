@@ -4,7 +4,7 @@ class LoginController extends BaseController {
 
   public function index() {
     return View::make('home.index')
-    ->with('title', 'Laravel Login Model')
+    ->with('title', 'Laravel Test Model')
     ->with('authors', Authors::orderBy('name')->get());
   }
 

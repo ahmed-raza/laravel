@@ -3,7 +3,7 @@
 @section('content')
 
   <h2>Delete Author</h2>
-  <p>Are you sure you want to delete <i><strong>{{ $authors->name }}</strong></i>. This action cannot be undone. </p>
+  <p>Are you sure you want to delete <i><strong>{{ $authors->name }}</strong></i>. This action cannot be undone.</p>
 
   {{ Form::open(array('url'=>'author/deleted', 'method'=>'post')) }}
     {{ Form::hidden('id', $authors->id) }}

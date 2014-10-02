@@ -15,6 +15,7 @@
 
       <ul class="nav pull-right">
           <li><?php echo HTML::link('/', 'Home'); ?></li>
+          <li><?php echo HTML::link('blog', 'Blog'); ?></li>
         <?php if(Auth::user()): ?>
           <li><?php echo HTML::link('profile', 'Profile'); ?></li>
           <li><?php echo HTML::link('logout', 'Logout'); ?></li>

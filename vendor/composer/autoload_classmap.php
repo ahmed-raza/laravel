@@ -7,7 +7,9 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AuthorController' => $baseDir . '/app/controllers/AuthorController.php',
+    'Authors' => $baseDir . '/app/models/Authors.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
+    'BlogController' => $baseDir . '/app/controllers/BlogController.php',
     'Boris\\Boris' => $vendorDir . '/d11wtq/boris/lib/Boris/Boris.php',
     'Boris\\CLIOptionsHandler' => $vendorDir . '/d11wtq/boris/lib/Boris/CLIOptionsHandler.php',
     'Boris\\ColoredInspector' => $vendorDir . '/d11wtq/boris/lib/Boris/ColoredInspector.php',
@@ -30,6 +32,7 @@ return array(
     'ClassPreloader\\Parser\\FileVisitor' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/FileVisitor.php',
     'ClassPreloader\\Parser\\NodeTraverser' => $vendorDir . '/classpreloader/classpreloader/src/ClassPreloader/Parser/NodeTraverser.php',
     'CreateAuthorsTable' => $baseDir . '/app/database/migrations/2014_09_23_044730_create_authors_table.php',
+    'CreateBlogTable' => $baseDir . '/app/database/migrations/2014_10_02_081957_create_blog_table.php',
     'CreateUsersTable' => $baseDir . '/app/database/migrations/2014_09_19_072623_create_users_table.php',
     'Crypt_AES' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/AES.php',
     'Crypt_Base' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/Base.php',

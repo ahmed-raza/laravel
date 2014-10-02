@@ -16,7 +16,7 @@
   </p>
   <p>
     {{ Form::submit('Edit Author', array('class'=>'btn btn-success')) }}
-    {{ HTML::link('profile', 'Go back', array('class'=>'btn btn-warning')) }}
+    {{ HTML::link('author/'.$authors->id, 'Go back', array('class'=>'btn btn-warning')) }}
   </p>
   {{ Form::close() }}
 
