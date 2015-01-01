@@ -40,6 +40,8 @@ Route::get('blog/{id}/delete', array('as'=>'bdel', 'uses'=>'BlogController@bdele
 Route::post('blog/deleted', array('before'=>'csrf', 'uses'=>'BlogController@bdeleted'));
 
 Route::get('user/{id}', array('as'=>'user', 'uses'=>'UserController@userProfile'));
+Route::get('user/{id}/delete', array('as'=>'delete_user', 'uses'=>'UserController@deleteUser'));
+Route::post('user/{id}/deleted', array('before'=>'csrf', 'uses'=>'UserController@userDeleted'));
 
 Route::get('test', array('as'=>'test', 'uses'=>'TestController@test'));
 Route::post('save', array('before'=>'csrf', 'uses'=>'TestController@save'));
