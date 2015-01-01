@@ -2,11 +2,13 @@
 
 @section('content')
 
-  <h1>Authors Blog Page</h1><span>{{ HTML::link('blog/new', 'New post') }}</span>
-
+  <h1>Authors Blog Page</h1>
+  @if(Auth::user())
+  <span>{{ HTML::link('blog/new', 'New post') }}</span>
+  @endif
   <ul>
   @foreach ($blogs as $blog)
-  <li>{{ HTML::link('blog/post/'.$blog->id, $blog->title) }}</li>
+  <li>{{ HTML::link('blog/'.$blog->id, $blog->title) }}</li>
   @endforeach
   </ul>
 

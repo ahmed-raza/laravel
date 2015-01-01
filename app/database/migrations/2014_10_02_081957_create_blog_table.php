@@ -12,15 +12,16 @@ class CreateBlogTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('blogs', function($table){
+		Schema::create('blogs', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('title');
-			$table->text('body');
-			$table->string('user_name');
-			$table->string('user_email');
-			$table->string('created');
-			$table->string('updated');
-		});
+			$table->string('read_more');
+			$table->string('submitted_by');
+			$table->text('content');
+			$table->unsignedInteger('comment_count');
+			$table->timestamps();
+			});
+		DB::statement('ALTER TABLE blogs ADD FULLTEXT search(title, content)');
 	}
 
 	/**

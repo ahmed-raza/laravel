@@ -34,20 +34,31 @@ class AuthorController extends BaseController {
   }
 
   public function profile($id) {
-    return View::make('author.profile')
-    ->with('title', 'Authors Profile')
-    ->with('authors', Authors::find($id));
-  }
-
-  public function update() {
-    if (Auth::user()) {
-      $id = Input::get('id');
-      return View::make('author.update')
-      ->with('title', 'Edit Author')
+    if (Authors::find($id)) {
+      return View::make('author.profile')
+      ->with('title', "Laravel | Author ".Authors::find($id)->name)
       ->with('authors', Authors::find($id));
     }
+    else {
+      return View::make('plugins.missing')
+      ->with('title', 'Laravel | Error 404');
+    }
+  }
+
+  public function update($id) {
+    if (Auth::user()) {
+      if (Authors::find($id)) {
+        return View::make('author.update')
+        ->with('title', 'Laravel | Edit Author')
+        ->with('authors', Authors::find($id));
+      }
+      else{
+        return View::make('plugins.missing')
+        ->with('title', 'Laravel | Error 404');
+      }
+    }
     else{
-      return Redirect::to('login')->with('message', 'You need to login first.');
+      return Redirect::to('login')->withErrors('You need to login first.');
     }
   }
 
@@ -68,26 +79,30 @@ class AuthorController extends BaseController {
           'name'=>Input::get('name'),
           'bio'=>Input::get('bio'),
           'updated'=>$timestamp,
-          'updated_at'=>""
         ));
       return Redirect::to('author/'.$id)->with('message', 'Author was editted successfully!');
     }
   }
 
-  public function delete() {
-    $id = Input::get('id');
+  public function delete($id) {
     if (Auth::user()) {
       if (!empty($id)) {
-        return View::make('author.delete')
-        ->with('title','Delete Author')
-        ->with('authors', Authors::find($id));
+        if (Authors::find($id)) {
+          return View::make('author.delete')
+          ->with('title','Laravel | Delete Author')
+          ->with('authors', Authors::find($id));
+        }
+        else{
+          return View::make('plugins.missing')
+          ->with('title', 'Laravel | Error 404');
+        }
       }
       else{
-        return Redirect::to('/')->with('message', 'Unknown error!');
+        return Redirect::to('/')->withErrors('Unknown error!');
       }
     }
     else{
-      return Redirect::to('login')->with('message', 'You need to login first.');
+      return Redirect::to('login')->withErrors('You need to login first.');
     }
   }
 

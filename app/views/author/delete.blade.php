@@ -8,7 +8,7 @@
   {{ Form::open(array('url'=>'author/deleted', 'method'=>'post')) }}
     {{ Form::hidden('id', $authors->id) }}
     {{ Form::submit('Delete', array('class'=>'btn btn-danger')) }}
-    {{ HTML::link('author/'.$authors->id, 'Go back', array('class'=>'btn btn-warning')) }}
+    {{ HTML::link(URL::previous(), 'Go back', array('class'=>'btn btn-warning')) }}
   {{ Form::close() }}
 
 @endsection

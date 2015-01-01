@@ -4,7 +4,7 @@
 
   <ul>
   <?php foreach($authors as $author): ?>
-  <li><?php echo HTML::link('author/'.$author->id, $author->name); ?></li>
+    <li><?php echo HTML::link('author/'.$author->id, $author->name); ?></li>
   <?php endforeach; ?>
   </ul>
 

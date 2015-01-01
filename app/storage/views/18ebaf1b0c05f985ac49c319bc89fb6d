@@ -1,28 +1,15 @@
 <?php $__env->startSection('content'); ?>
 
   <h1><?php echo $authors->name; ?></h1>
+  <strong>Created At: <?php echo $authors->created; ?></strong>
   <p><?php echo $authors->bio; ?></p>
-  <strong><?php echo $authors->created; ?></strong>
 
   <p>
-    <?php echo Form::open(array('url'=>'author/update', 'method'=>'post', 'style'=>'display:inline;')); ?>
+    <?php echo HTML::link('author/'.$authors->id.'/update', 'Edit', array('class'=>'btn btn-primary')); ?>
 
-      <?php echo Form::hidden('id', $authors->id); ?>
+    <?php echo HTML::link('author/'.$authors->id.'/delete', 'Delete', array('class'=>'btn btn-danger')); ?>
 
-      <?php echo Form::submit('Edit', array('class'=>'btn btn-primary')); ?>
-
-    <?php echo Form::close(); ?>
-
-
-    <?php echo Form::open(array('url'=>'author/delete', 'method'=>'post', 'style'=>'display:inline;')); ?>
-
-      <?php echo Form::hidden('id', $authors->id); ?>
-
-      <?php echo Form::submit('Delete', array('class'=>'btn btn-danger')); ?>
-
-      <?php echo HTML::link('/', 'Go back', array('class'=>'btn btn-warning')); ?>
-
-    <?php echo Form::close(); ?>
+    <?php echo HTML::link('/', 'Go back', array('class'=>'btn btn-warning')); ?>
 
   </p>
 

@@ -18,17 +18,28 @@ Route::post('login/user', array('uses'=>'LoginController@loginUser'));
 Route::get('register', array('as'=>'reg', 'uses'=>'LoginController@register'));
 Route::post('register/user', array('uses'=>'LoginController@registerUser'));
 Route::get('profile', array('as'=>'profile', 'uses'=>'LoginController@profile'));
+Route::get('profile/edit', array('as'=>'edit_profile', 'uses'=>'LoginController@editProfile'));
+Route::post('profile/edit/confirm', array('before'=>'csrf', 'uses'=>'LoginController@confProfile'));
 Route::get('logout', array('as'=>'logout', 'uses'=>'LoginController@logout'));
 
 Route::get('author/new', array('as'=>'new', 'uses'=>'AuthorController@add'));
 Route::post('author/add', array('before'=>'csrf', 'uses'=>'AuthorController@added'));
 Route::get('author/{id}', array('as'=>'authPro', 'uses'=>'AuthorController@profile'));
-Route::post('author/update', array('as'=>'update', 'uses'=>'AuthorController@update'));
+Route::get('author/{id}/update', array('as'=>'update', 'uses'=>'AuthorController@update'));
 Route::post('author/updated', array('as'=>'updated', 'uses'=>'AuthorController@updated'));
-Route::post('author/delete', array('before'=>'csrf', 'uses'=>'AuthorController@delete'));
+Route::get('author/{id}/delete', array('as'=>'delete', 'uses'=>'AuthorController@delete'));
 Route::post('author/deleted', array('before'=>'csrf', 'uses'=>'AuthorController@deleted'));
 
 Route::get('blog', array('as'=>'blog', 'uses'=>'BlogController@index'));
 Route::get('blog/new', array('as'=>'bnew', 'uses'=>'BlogController@bnew'));
 Route::post('blog/add', array('before'=>'csrf', 'uses'=>'BlogController@badd'));
-Route::get('blog/post/{id}', array('as'=>'bpage', 'uses'=>'BlogController@bpage'));
+Route::get('blog/{id}', array('as'=>'bpage', 'uses'=>'BlogController@bpage'));
+Route::get('blog/{id}/edit', array('as'=>'bedit', 'uses'=>'BlogController@bedit'));
+Route::post('blog/edit', array('before'=>'csrf', 'uses'=>'BlogController@bupdate'));
+Route::get('blog/{id}/delete', array('as'=>'bdel', 'uses'=>'BlogController@bdelete'));
+Route::post('blog/deleted', array('before'=>'csrf', 'uses'=>'BlogController@bdeleted'));
+
+Route::get('user/{id}', array('as'=>'user', 'uses'=>'UserController@userProfile'));
+
+Route::get('test', array('as'=>'test', 'uses'=>'TestController@test'));
+Route::post('save', array('before'=>'csrf', 'uses'=>'TestController@save'));

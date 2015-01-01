@@ -88,8 +88,3 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
-
-App::missing(function($exception)
-{
-    return Response::view('plugins.missing', array(), 404);
-});

@@ -2,7 +2,7 @@
 
   <div class="alert alert-danger">
     <h4 class="alert-heading">Error 404</h4>
-    <p>Requested page not found on this server.</p>
+    <p>Requested page '<?php echo Request::url(); ?>' not found on this server. <?php echo HTML::link(URL::previous(), 'Go back'); ?></p>
   </div>
 
 <?php $__env->stopSection(); ?>

@@ -1,16 +1,73 @@
 <?php $__env->startSection('content'); ?>
 
-  <div class="row">
-    <div class="span6 well">
-      Welcome to your profile page <?php echo Auth::user()->username; ?>.
-    </div>
+  <div class="span5 well">
+    <?php echo HTML::link('profile/edit', '', array('class'=>'close icon icon-pencil', 'id'=>'opener')); ?>
+
+    <p>Welcome to your profile page '<i><?php echo Auth::user()->username; ?></i>'.</p>
+    <?php if(Auth::user()->user_rank == 'sadmin'): ?>
+      <p>Rank: Super Admin</p>
+    <?php elseif(Auth::user()->user_rank == 'user'): ?>
+      <p>Rank: User</p>
+    <?php endif; ?>
+    <?php if(Auth::user()->phone): ?>
+      <p>Phone: <?php echo Auth::user()->phone; ?></p>
+    <?php endif; ?>
+    <?php if(Auth::user()->city): ?>
+      <p>City: <?php echo Auth::user()->city; ?></p>
+    <?php endif; ?>
+    <?php if(Auth::user()->country): ?>
+      <p>Country: <?php echo Auth::user()->country; ?></p>
+    <?php endif; ?>
+    <?php if(Auth::user()->bio): ?>
+      <p><?php echo Auth::user()->bio; ?></p>
+    <?php endif; ?>
   </div>
-    <p>You can:</p>
-    <ul>
-      <li><?php echo HTML::link('author/new', 'Add Author'); ?></li>
-      <li>Edit Author</li>
-      <li>Delete Author</li>
-    </ul>
+  <div class="span5">
+    <?php if($authors->count() != 0): ?>
+    <strong>Authors: <?php echo $tauthors; ?></strong>
+    <table class="table table-hover span5">
+      <tr>
+        <th>Author ID</th>
+        <th>Author Name</th>
+        <th>Actions</th>
+      </tr>
+      <?php foreach($authors as $author): ?>
+        <tr>
+          <td><?php echo $author->id; ?></td>
+          <td><?php echo HTML::link('author/'.$author->id, $author->name); ?></td>
+          <td>
+            <?php echo HTML::link('author/'.$author->id.'/update','',array('class'=>'icon icon-pencil','title'=>'Edit User')); ?>
+
+            <?php echo HTML::link('author/'.$author->id.'/delete','',array('class'=>'icon icon-remove','title'=>'Delete User')); ?>
+
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </table>
+    <?php endif; ?>
+    <?php if(Auth::user()->user_rank == 'sadmin'): ?>
+    <strong>Users: <?php echo $tusers; ?></strong>
+    <table class="table table-hover span5">
+      <tr>
+        <th>User ID</th>
+        <th>Username</th>
+        <th>Actions</th>
+      </tr>
+      <?php foreach($users as $user): ?>
+        <tr>
+          <td><?php echo $user->id; ?></td>
+          <td><?php echo HTML::link('user/'.$user->id, $user->username); ?></td>
+          <td>
+            <?php echo HTML::link('user/'.$user->id.'/edit', '', array('class'=>'icon icon-pencil', 'title'=>'Edit User')); ?>
+
+            <?php echo HTML::link('user/'.$user->id.'/delete', '', array('class'=>'icon icon-remove', 'title'=>'Delete User')); ?>
+
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </table>
+    <?php endif; ?>
+  </div>
 
 <?php $__env->stopSection(); ?>
 

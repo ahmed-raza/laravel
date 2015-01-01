@@ -6,7 +6,7 @@
 
   <ul>
   @foreach ($authors as $author)
-  <li>{{ HTML::link('author/'.$author->id, $author->name) }}</li>
+    <li>{{ HTML::link('author/'.$author->id, $author->name) }}</li>
   @endforeach
   </ul>
 

@@ -7,11 +7,15 @@
 
   <?php echo HTML::script('js/bootstrap.js'); ?>
 
+  <?php echo HTML::script('js/jquery-2.1.1.js'); ?>
+
+  <?php echo HTML::script('js/test.jquery.js'); ?>
+
 </head>
 <body>
   <div class="navbar">
     <div class="navbar-inner">
-      <?php echo HTML::link('/', 'Laravel Login Model', array('class'=>'brand')); ?>
+      <?php echo HTML::link('/', 'Laravel', array('class'=>'brand')); ?>
 
       <ul class="nav pull-right">
           <li><?php echo HTML::link('/', 'Home'); ?></li>
@@ -32,5 +36,12 @@
     <?php endif; ?>
     <?php echo $__env->yieldContent('content'); ?>
   </div>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('#show').click(function(){
+        $('#comment-field').fadeToggle('slow');
+      });
+    });
+  </script>
 </body>
 </html>

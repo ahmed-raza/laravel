@@ -77,5 +77,11 @@ App::down(function()
 | definitions instead of putting them all in the main routes file.
 |
 */
+App::missing(function($exception)
+{
+    return View::make('plugins.missing')
+    ->with('title', 'Laravel | Error 404');
+    return Response::view('plugins.missing', array(), 404);
+});
 
 require app_path().'/filters.php';
