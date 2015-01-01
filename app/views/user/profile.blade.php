@@ -16,7 +16,7 @@
     @if(Auth::user()->city)
       <p>City: {{ Auth::user()->city }}</p>
     @endif
-    @if(Auth::user()->country)
+    @if(Auth::user()->country && Auth::user()->country !== '-1')
       <p>Country: {{ Auth::user()->country }}</p>
     @endif
     @if(Auth::user()->bio)

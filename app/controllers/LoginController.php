@@ -105,8 +105,8 @@ class LoginController extends BaseController {
       'newpass'=>'min:5',
       'conpass'=>'min:5',
       'bio'=>'required|min:10',
-      'phone'=>'numeric|unique:users|min:7',
-      'city'=>'min:2'
+      'phone'=>'numeric|min:7',
+      'city'=>'min:3'
       );
     $validator = Validator::make(Input::all(), $rules);
     if ($validator->fails()) {
@@ -124,12 +124,18 @@ class LoginController extends BaseController {
         else{
           $npass = Auth::user()->password;
         }
+        if (Input::get('phone') !== Auth::user()->phone) {
+          $newphone = Input::get('phone');
+        }
+        else{
+          $newphone = Auth::user()->phone;
+        }
         DB::table('users')
         ->where('id', Auth::user()->id)
         ->update(array(
             'password'=>$npass,
             'bio'=>Input::get('bio'),
-            'phone'=>Input::get('phone'),
+            'phone'=>$newphone,
             'city'=>Input::get('city'),
             'country'=>Input::get('country')
           ));
