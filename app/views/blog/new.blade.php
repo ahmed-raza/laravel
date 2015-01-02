@@ -7,7 +7,7 @@
   {{ Form::open(array('url'=>'blog/add', 'method'=>'post')) }}
   <p>
     {{ Form::label('title','Title') }}
-    {{ Form::text('title') }}
+    {{ Form::text('title', '', array('class'=>'span6')) }}
   </p>
   <p>
     {{ Form::label('body', 'Body') }}

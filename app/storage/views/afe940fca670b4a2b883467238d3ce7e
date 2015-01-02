@@ -6,11 +6,11 @@
         <legend>Please Register</legend>
         <?php echo Form::open(array('url'=>'register/user', 'method'=>'POST')); ?>
 
-        <?php echo Form::text('username', '', array('class'=>'span3', 'placeholder'=>'Username')); ?>
+        <?php echo Form::text('username', '', array('class'=>'span12', 'placeholder'=>'Username')); ?>
 
-        <?php echo Form::text('email', '', array('class'=>'span3', 'placeholder'=>'Email')); ?>
+        <?php echo Form::text('email', '', array('class'=>'span12', 'placeholder'=>'Email')); ?>
 
-        <?php echo Form::password('password', array('class'=>'span3', 'placeholder'=>'Password')); ?>
+        <?php echo Form::password('password', array('class'=>'span12', 'placeholder'=>'Password')); ?>
 
         <?php echo Form::submit('Register', array('class'=>'btn btn-warning')); ?>
 

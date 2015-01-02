@@ -46,7 +46,7 @@
     @endif
     @if(Auth::user()->user_rank == 'sadmin')
     <strong>Users: {{ $tusers }}</strong>
-    <table class="table table-hover span5">
+    <table class="table table-hover span12">
       <tr>
         <th>User ID</th>
         <th>Username</th>

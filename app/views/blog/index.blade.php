@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <h1>Authors Blog Page</h1>
+  <h1>Blog Page</h1>
   @if(Auth::user())
   <span>{{ HTML::link('blog/new', 'New post') }}</span>
   @endif
