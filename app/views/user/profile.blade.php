@@ -24,25 +24,25 @@
     @endif
   </div>
   <div class="span5">
-    @if($authors->count() != 0)
-    <strong>Authors: {{ $tauthors }}</strong>
-    <table class="table table-hover span5">
-      <tr>
-        <th>Author ID</th>
-        <th>Author Name</th>
-        <th>Actions</th>
-      </tr>
-      @foreach ($authors as $author)
+    @if(Auth::user()->user_rank == 'sadmin')
+      <strong>Authors: {{ $tauthors }}</strong>
+      <table class="table table-hover span12">
         <tr>
-          <td>{{ $author->id }}</td>
-          <td>{{ HTML::link('author/'.$author->id, $author->name) }}</td>
-          <td>
-            {{ HTML::link('author/'.$author->id.'/update','',array('class'=>'icon icon-pencil','title'=>'Edit User')) }}
-            {{ HTML::link('author/'.$author->id.'/delete','',array('class'=>'icon icon-remove','title'=>'Delete User')) }}
-          </td>
+          <th>Author ID</th>
+          <th>Author Name</th>
+          <th>Actions</th>
         </tr>
-      @endforeach
-    </table>
+        @foreach ($authors as $author)
+          <tr>
+            <td>{{ $author->id }}</td>
+            <td>{{ HTML::link('author/'.$author->id, $author->name) }}</td>
+            <td>
+              {{ HTML::link('author/'.$author->id.'/update','',array('class'=>'icon icon-pencil','title'=>'Edit User')) }}
+              {{ HTML::link('author/'.$author->id.'/delete','',array('class'=>'icon icon-remove','title'=>'Delete User')) }}
+            </td>
+          </tr>
+        @endforeach
+      </table>
     @endif
     @if(Auth::user()->user_rank == 'sadmin')
     <strong>Users: {{ $tusers }}</strong>

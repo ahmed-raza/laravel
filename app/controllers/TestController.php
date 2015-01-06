@@ -6,7 +6,9 @@
       ->with('title', 'Test');
     }
     public function save(){
-      $name = Input::get('name');
-      return json_encode($name);
+      if (Request::ajax()) {
+        $name = Input::get('name');
+        return true;
+      }
     }
   }
