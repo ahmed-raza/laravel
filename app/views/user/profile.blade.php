@@ -22,6 +22,12 @@
     @if(Auth::user()->bio)
       <p>{{ Auth::user()->bio }}</p>
     @endif
-  </div>
 
+    {{ Form::open(array('url'=>'upload', 'method'=>'POST', 'id'=>'upload_modal_form', 'enctype'=>'multipart/form-data')) }}
+    {{ Form::label('photo', 'Photo') }}
+    {{ Form::file('photo') }}
+    {{ Form::label('description', 'Description') }}
+    {{ Form::text('description', '', array('placeholder'=>'Short Description', 'id'=>'description')) }}
+    {{ Form::submit('Upload') }}
+    {{ Form::close() }}
 @endsection

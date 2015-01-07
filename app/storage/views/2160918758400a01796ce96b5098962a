@@ -21,7 +21,20 @@
     <?php if(Auth::user()->bio): ?>
       <p><?php echo Auth::user()->bio; ?></p>
     <?php endif; ?>
-  </div>
+
+    <?php echo Form::open(array('url'=>'upload', 'method'=>'POST', 'id'=>'upload_modal_form', 'enctype'=>'multipart/form-data')); ?>
+
+    <?php echo Form::label('photo', 'Photo'); ?>
+
+    <?php echo Form::file('photo'); ?>
+
+    <?php echo Form::label('description', 'Description'); ?>
+
+    <?php echo Form::text('description', '', array('placeholder'=>'Short Description', 'id'=>'description')); ?>
+
+    <?php echo Form::submit('Upload'); ?>
+
+    <?php echo Form::close(); ?>
 
 <?php $__env->stopSection(); ?>
 

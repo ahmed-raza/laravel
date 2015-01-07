@@ -72,6 +72,11 @@
         <div class="alert alert-success"><?php echo Session::get('message'); ?></div>
       <?php endif; ?>
       <?php echo $__env->yieldContent('content'); ?>
+      <?php $__env->startSection('Modals'); ?>
+        <?php if(Auth::user()): ?>
+          <?php echo $__env->make('plugins.upload_modal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <?php endif; ?>
+      <?php $__env->stopSection(); ?>
     </div>
   </div>
   <script type="text/javascript">

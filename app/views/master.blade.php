@@ -60,6 +60,11 @@
         <div class="alert alert-success">{{ Session::get('message') }}</div>
       @endif
       @yield('content')
+      @section('Modals')
+        @if(Auth::user())
+          @include('plugins.upload_modal')
+        @endif
+      @endsection
     </div>
   </div>
   <script type="text/javascript">

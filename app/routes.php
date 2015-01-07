@@ -46,3 +46,5 @@ Route::get('blog/{slug}', function($slug){
   $post = Post::where('slug', $slug)->first();
   return View::make('posts.post')->with('post', $post)->with('title', $post->title);
 });
+
+Route::post('upload', array('before'=>'csrf', 'uses'=>'PhotoController@post_upload'));
