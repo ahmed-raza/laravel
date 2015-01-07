@@ -2,6 +2,17 @@
 
 class AuthorController extends BaseController {
 
+  public function authorsList(){
+    if (Auth::user()->user_rank == 'sadmin') {
+      return View::make('author.list')
+      ->with('title', 'Laravel | Authors List')
+      ->with('authors', Authors::get());
+    }
+    else{
+      return Redirect::to('profile')->withErrors('Access Denied! You are not authorized to access that page.');
+    }
+  }
+
   public function add() {
     if (Auth::user()) {
       return View::make('author.index')

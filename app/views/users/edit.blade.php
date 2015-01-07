@@ -38,7 +38,7 @@
     </p>
     <p>
       {{ Form::submit('Save', array('class'=>'btn btn-success')) }}
-      {{ HTML::link('profile', 'Go back', array('class'=>'btn btn-warning')) }}
+      {{ HTML::link('users', 'Go back', array('class'=>'btn btn-warning')) }}
     </p>
   </div>
   {{ Form::close() }}

@@ -978,6 +978,7 @@ return array(
     'CreateAuthorsTable' => $baseDir . '/app/database/migrations/2014_09_23_044730_create_authors_table.php',
     'CreateBlogTable' => $baseDir . '/app/database/migrations/2014_10_02_081957_create_blog_table.php',
     'CreateCommentsTable' => $baseDir . '/app/database/migrations/2014_10_03_064459_create_comments_table.php',
+    'CreatePostsTable' => $baseDir . '/app/database/migrations/2015_01_07_052936_create_posts_table.php',
     'CreateUsersTable' => $baseDir . '/app/database/migrations/2014_09_19_072623_create_users_table.php',
     'Crypt_AES' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/AES.php',
     'Crypt_Base' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/Base.php',

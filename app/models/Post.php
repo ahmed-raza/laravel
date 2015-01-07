@@ -1,9 +1,14 @@
 <?php
 
 class Post extends Eloquent {
+  protected $gaurded = array();
 
-  public function comments() {
-    return $this->hasMany('Comment');
+  public static $rules = array(
+      'title'=>'required|unique:posts',
+      'body'=>'required'
+    );
+
+  public function user(){
+    return $this->belongsTo('Users', 'id');
   }
-
 }

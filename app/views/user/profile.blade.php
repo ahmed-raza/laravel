@@ -23,47 +23,5 @@
       <p>{{ Auth::user()->bio }}</p>
     @endif
   </div>
-  <div class="span5">
-    @if(Auth::user()->user_rank == 'sadmin')
-      <strong>Authors: {{ $tauthors }}</strong>
-      <table class="table table-hover span12">
-        <tr>
-          <th>Author ID</th>
-          <th>Author Name</th>
-          <th>Actions</th>
-        </tr>
-        @foreach ($authors as $author)
-          <tr>
-            <td>{{ $author->id }}</td>
-            <td>{{ HTML::link('author/'.$author->id, $author->name) }}</td>
-            <td>
-              {{ HTML::link('author/'.$author->id.'/update','',array('class'=>'icon icon-pencil','title'=>'Edit User')) }}
-              {{ HTML::link('author/'.$author->id.'/delete','',array('class'=>'icon icon-remove','title'=>'Delete User')) }}
-            </td>
-          </tr>
-        @endforeach
-      </table>
-    @endif
-    @if(Auth::user()->user_rank == 'sadmin')
-    <strong>Users: {{ $tusers }}</strong>
-    <table class="table table-hover span12">
-      <tr>
-        <th>User ID</th>
-        <th>Username</th>
-        <th>Actions</th>
-      </tr>
-      @foreach ($users as $user)
-        <tr>
-          <td>{{ $user->id }}</td>
-          <td>{{ HTML::link('user/'.$user->id, $user->username) }}</td>
-          <td>
-            {{ HTML::link('user/'.$user->id.'/edit', '', array('class'=>'icon icon-pencil', 'title'=>'Edit User')) }}
-            {{ HTML::link('user/'.$user->id.'/delete', '', array('class'=>'icon icon-remove', 'title'=>'Delete User')) }}
-          </td>
-        </tr>
-      @endforeach
-    </table>
-    @endif
-  </div>
 
 @endsection

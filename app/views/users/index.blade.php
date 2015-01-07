@@ -10,4 +10,5 @@
   @if($user->bio)
   <p>{{ $user->bio }}</p>
   @endif
+  {{ HTML::link(URL::previous(), 'Go Back', array('class'=>'btn btn-warning')) }}
 @endsection

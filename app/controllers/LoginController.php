@@ -77,11 +77,7 @@ class LoginController extends BaseController {
     if (Auth::user()) {
       $title = ucwords("Laravel | ".Auth::user()->username."'s Profile");
       return View::make('user.profile')
-      ->with('title', $title)
-      ->with('users', Users::get())
-      ->with('tusers', Users::count())
-      ->with('authors', Authors::get())
-      ->with('tauthors', Authors::count());
+      ->with('title', $title);
     }
     else{
       return Redirect::to('login')->withErrors('You need to login first.');

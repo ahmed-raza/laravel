@@ -22,6 +22,7 @@ Route::get('profile/edit', array('as'=>'edit_profile', 'uses'=>'LoginController@
 Route::post('profile/edit/confirm', array('before'=>'csrf', 'uses'=>'LoginController@confProfile'));
 Route::get('logout', array('as'=>'logout', 'uses'=>'LoginController@logout'));
 
+Route::get('authors', array('as'=>'authors', 'uses'=>'AuthorController@authorsList'));
 Route::get('author/new', array('as'=>'new', 'uses'=>'AuthorController@add'));
 Route::post('author/add', array('before'=>'csrf', 'uses'=>'AuthorController@added'));
 Route::get('author/{id}', array('as'=>'authPro', 'uses'=>'AuthorController@profile'));
@@ -30,15 +31,7 @@ Route::post('author/updated', array('as'=>'updated', 'uses'=>'AuthorController@u
 Route::get('author/{id}/delete', array('as'=>'delete', 'uses'=>'AuthorController@delete'));
 Route::post('author/deleted', array('before'=>'csrf', 'uses'=>'AuthorController@deleted'));
 
-Route::get('blog', array('as'=>'blog', 'uses'=>'BlogController@index'));
-Route::get('blog/new', array('as'=>'bnew', 'uses'=>'BlogController@bnew'));
-Route::post('blog/add', array('before'=>'csrf', 'uses'=>'BlogController@badd'));
-Route::get('blog/{id}', array('as'=>'bpage', 'uses'=>'BlogController@bpage'));
-Route::get('blog/{id}/edit', array('as'=>'bedit', 'uses'=>'BlogController@bedit'));
-Route::post('blog/edit', array('before'=>'csrf', 'uses'=>'BlogController@bupdate'));
-Route::get('blog/{id}/delete', array('as'=>'bdel', 'uses'=>'BlogController@bdelete'));
-Route::post('blog/deleted', array('before'=>'csrf', 'uses'=>'BlogController@bdeleted'));
-
+Route::get('users', array('as'=>'users', 'uses'=>'UserController@usersList'));
 Route::get('user/{id}', array('as'=>'user', 'uses'=>'UserController@userProfile'));
 Route::get('user/{id}/edit', array('as'=>'edit_user', 'uses'=>'UserController@editUser'));
 Route::post('user/editted', array('before'=>'csrf', 'uses'=>'UserController@userEditted'));
@@ -47,3 +40,9 @@ Route::post('user/{id}/deleted', array('before'=>'csrf', 'uses'=>'UserController
 
 Route::get('test', array('as'=>'test', 'uses'=>'TestController@test'));
 Route::post('save', array('before'=>'csrf', 'uses'=>'TestController@save'));
+
+Route::resource('posts', 'PostController');
+Route::get('blog/{slug}', function($slug){
+  $post = Post::where('slug', $slug)->first();
+  return View::make('posts.post')->with('post', $post)->with('title', $post->title);
+});

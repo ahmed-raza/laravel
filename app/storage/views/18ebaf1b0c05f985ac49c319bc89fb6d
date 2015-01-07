@@ -9,7 +9,7 @@
 
     <?php echo HTML::link('author/'.$authors->id.'/delete', 'Delete', array('class'=>'btn btn-danger')); ?>
 
-    <?php echo HTML::link('/', 'Go back', array('class'=>'btn btn-warning')); ?>
+    <?php echo HTML::link(URL::previous(), 'Go back', array('class'=>'btn btn-warning')); ?>
 
   </p>
 

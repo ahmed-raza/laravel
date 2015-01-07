@@ -1,5 +1,16 @@
 <?php
   class UserController extends BaseController{
+    public function usersList(){
+      if (Auth::user()->user_rank == 'sadmin') {
+        return View::make('users.list')
+        ->with('title', 'Laravel | Users List')
+        ->with('users', Users::get());
+      }
+      else{
+        return Redirect::to('profile')->withErrors('Access Denied! You are not authorized to view that page.');
+      }
+    }
+
     public function userProfile($id){
       if (Auth::user()) {
         return View::make('users.index')

@@ -14,6 +14,8 @@
   {{ HTML::script('js/jquery-2.1.1.js') }}
   {{ HTML::script('js/bootstrap.min.js') }}
   {{ HTML::script('js/test.jquery.js') }}
+  {{ HTML::script('ckeditor/ckeditor.js') }}
+  <script>CKEDITOR.replace('content');</script>
 </head>
 <body>
   <div class="navbar">
@@ -25,7 +27,7 @@
         <div class="nav-collapse collapse">
           <ul class="nav pull-right">
             <li>{{ HTML::link('/', 'Home') }}</li>
-            <li>{{ HTML::link('blog', 'Blog') }}</li>
+            <li>{{ link_to_route('posts.index', 'Blog') }}</li>
             @if(Auth::user())
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -34,10 +36,12 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a href="{{ url('profile') }}"><i class="icon-user"></i> Profile</a></li>
+                @if(Auth::user()->user_rank == 'sadmin')
                 <li class="divider"></li>
                 <li><a href="{{ url('authors') }}"><i class="icon-pencil"></i> Authors</a></li>
-                <li>{{ HTML::link('users', 'Users')}}</li>
+                <li><a href="{{ url('users') }}"><i class="icon-user"></i> Users</a></li>
                 <li class="divider"></li>
+                @endif
                 <li><a href="{{ url('logout') }}"><i class="icon-off"></i> Logout</a></li>
               </ul>
             </li>

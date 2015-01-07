@@ -22,52 +22,6 @@
       <p><?php echo Auth::user()->bio; ?></p>
     <?php endif; ?>
   </div>
-  <div class="span5">
-    <?php if(Auth::user()->user_rank == 'sadmin'): ?>
-      <strong>Authors: <?php echo $tauthors; ?></strong>
-      <table class="table table-hover span12">
-        <tr>
-          <th>Author ID</th>
-          <th>Author Name</th>
-          <th>Actions</th>
-        </tr>
-        <?php foreach($authors as $author): ?>
-          <tr>
-            <td><?php echo $author->id; ?></td>
-            <td><?php echo HTML::link('author/'.$author->id, $author->name); ?></td>
-            <td>
-              <?php echo HTML::link('author/'.$author->id.'/update','',array('class'=>'icon icon-pencil','title'=>'Edit User')); ?>
-
-              <?php echo HTML::link('author/'.$author->id.'/delete','',array('class'=>'icon icon-remove','title'=>'Delete User')); ?>
-
-            </td>
-          </tr>
-        <?php endforeach; ?>
-      </table>
-    <?php endif; ?>
-    <?php if(Auth::user()->user_rank == 'sadmin'): ?>
-    <strong>Users: <?php echo $tusers; ?></strong>
-    <table class="table table-hover span12">
-      <tr>
-        <th>User ID</th>
-        <th>Username</th>
-        <th>Actions</th>
-      </tr>
-      <?php foreach($users as $user): ?>
-        <tr>
-          <td><?php echo $user->id; ?></td>
-          <td><?php echo HTML::link('user/'.$user->id, $user->username); ?></td>
-          <td>
-            <?php echo HTML::link('user/'.$user->id.'/edit', '', array('class'=>'icon icon-pencil', 'title'=>'Edit User')); ?>
-
-            <?php echo HTML::link('user/'.$user->id.'/delete', '', array('class'=>'icon icon-remove', 'title'=>'Delete User')); ?>
-
-          </td>
-        </tr>
-      <?php endforeach; ?>
-    </table>
-    <?php endif; ?>
-  </div>
 
 <?php $__env->stopSection(); ?>
 

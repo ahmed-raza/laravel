@@ -19,7 +19,7 @@
   <p>
     <?php echo Form::submit('Add Author', array('class'=>'btn btn-success')); ?>
 
-    <?php echo HTML::link('profile', 'Go back', array('class'=>'btn btn-warning')); ?>
+    <?php echo HTML::link(URL::previous(), 'Go back', array('class'=>'btn btn-warning')); ?>
 
   </p>
   <?php echo Form::close(); ?>
