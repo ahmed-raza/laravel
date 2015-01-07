@@ -29,7 +29,7 @@ CREATE TABLE `authors` (
   `created` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `updated` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,36 +38,8 @@ CREATE TABLE `authors` (
 
 LOCK TABLES `authors` WRITE;
 /*!40000 ALTER TABLE `authors` DISABLE KEYS */;
+INSERT INTO `authors` VALUES (1,'Ahmed Raza','Vivamus congue porta felis eu dignissim. Nulla sed ornare ligula! Cras vel purus tincidunt, fringilla mi a, scelerisque dolor. Maecenas eu rutrum enim. Phasellus volutpat laoreet augue, nec sagittis est cursus ac. Morbi suscipit nisl in ligula porttitor accumsan. Sed luctus ex nec est dapibus condimentum? Nunc sem ex, facilisis porta consequat a, vehicula id justo. Aliquam posuere orci a magna iaculis; efficitur sodales odio lobortis. Praesent non diam tincidunt, elementum urna facilisis nullam.\r\n','Tue-01-2015 12:50:39 PM','');
 /*!40000 ALTER TABLE `authors` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `blogs`
---
-
-DROP TABLE IF EXISTS `blogs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `blogs` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `read_more` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `submitted_by` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `content` text COLLATE utf8_unicode_ci NOT NULL,
-  `comment_count` int(10) unsigned NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `blogs`
---
-
-LOCK TABLES `blogs` WRITE;
-/*!40000 ALTER TABLE `blogs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `blogs` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -89,8 +61,39 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES ('2014_09_19_072623_create_users_table',1),('2014_09_23_044730_create_authors_table',1);
+INSERT INTO `migrations` VALUES ('2014_09_19_072623_create_users_table',1),('2014_09_23_044730_create_authors_table',1),('2015_01_07_052936_create_posts_table',2);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `posts`
+--
+
+DROP TABLE IF EXISTS `posts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `posts` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `body` text COLLATE utf8_unicode_ci NOT NULL,
+  `m_keyw` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `m_desc` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `posts`
+--
+
+LOCK TABLES `posts` WRITE;
+/*!40000 ALTER TABLE `posts` DISABLE KEYS */;
+INSERT INTO `posts` VALUES (6,'Main Slider','<p>This is just an example post of this laravel blog.</p>','','first post','main-slider',1,'2015-01-07 04:31:36','2015-01-07 04:31:36');
+/*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -123,7 +126,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Admin','sadmin','ahmed.raza@square63.com','03244256607','Lahore','Pakistan','Morbi tempus ac augue sed pellentesque. Etiam bibendum metus nec cursus hendrerit. Aliquam quis eleifend risus! Nam eget orci in ipsum bibendum auctor vel nec orci! Pellentesque eget consectetur purus. Integer varius consectetur mauris at laoreet. Pellentesque quis tempor mauris. Sed in bibendum ex! Cras condimentum fringilla dolor, eu mollis ex vulputate a. Nunc quis cursus neque.\r\n','$2y$10$x1KXAcn.FtvmouJsq/yoxOnLLe8a.2o5ZhwWuy9oPSb4QTnhgSluG','0000-00-00 00:00:00','2014-12-31 07:46:24','a46m6uHOvEnKMIA70TE4FS9Q74qcnIESJx67kgAjhsKKSss7MS2ahI2N5cSR'),(2,'Raza','user','raza1778@gmail.com','+92323456789','Lahore','Pakistan','Vivamus euismod mauris. Vestibulum rutrum, mi nec elementum vehicula, eros quam gravida nisl, id fringilla neque ante vel mi. Vivamus quis mi. Mauris sollicitudin fermentum libero. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus.\r\n\r\nCurabitur turpis. Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est. Pellentesque commodo eros a enim. Donec orci lectus, aliquam ut, faucibus non, euismod id, nulla. In hac habitasse platea dictumst.\r\n\r\nAliquam eu nunc. Cras id dui. Nulla consequat massa quis enim. Phasellus tempus. Vestibulum dapibus nunc ac augue.','$2y$10$qsgTH7LWPIRBULntJn6sruXnEIcijgYF1wfw3.biP3Nk18MUDbVny','0000-00-00 00:00:00','0000-00-00 00:00:00',NULL);
+INSERT INTO `users` VALUES (1,'Admin','sadmin','ahmed.raza@square63.com','03244256607','Lahore','-1','Maecenas vestibulum eros sit amet eros pellentesque euismod? Integer sit amet ante sit amet nulla euismod bibendum. Nunc condimentum dignissim nunc vel consequat. Sed vitae condimentum odio; et hendrerit neque. Suspendisse et tempor risus. Cras eu sem in lacus luctus cursus consequat sit amet massa. Nam hendrerit venenatis nunc sed suscipit. Morbi auctor tempor diam ultricies viverra. Donec sagittis lectus eu malesuada mattis. Quisque libero elit, sagittis venenatis justo at, dignissim volutpat.\r\n','$2y$10$.wlZ7LZ4JAPHbsPLNevrvebhOG8Kit8FmYMKxxMYMGTU56C.SS50q','0000-00-00 00:00:00','2015-01-06 03:35:13','UtbRUVpLPuI5YxYjDvRV3xEBvggOVjBvlQCnFm8yoIZgdzi8VNrLPIgnkm6H'),(2,'Raza','user','raza1778@gmail.com','+92323456789','Lahore','-1','Vivamus euismod mauris. Vestibulum rutrum, mi nec elementum vehicula, eros quam gravida nisl, id fringilla neque ante vel mi. Vivamus quis mi. Mauris sollicitudin fermentum libero. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus.','$2y$10$DXNbJR8sK.aNEGY9EJAcy.JaMcuKDTZsS6V7U7W7oZf4Cm.CpH.BW','0000-00-00 00:00:00','2015-01-05 07:14:54','naKFb7lKsnMXH520TUTFKACmY3gW9qo5yyW8SjmOieloQAZxXvrzJXDUpDQU');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -136,4 +139,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-01-01 10:27:04
+-- Dump completed on 2015-01-07 15:15:54
