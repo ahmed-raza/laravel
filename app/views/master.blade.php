@@ -9,12 +9,14 @@
   {{ HTML::style('css/bootstrap.min.css') }}
   {{ HTML::style('css/bootstrap-responsive.css') }}
   {{ HTML::style('css/bootstrap-responsive.min.css') }}
+  {{ HTML::style('css/style.css') }}
   {{ HTML::script('js/jquery-1.10.1.js') }}
   {{ HTML::script('js/bootstrap.js') }}
   {{ HTML::script('js/jquery-2.1.1.js') }}
   {{ HTML::script('js/bootstrap.min.js') }}
   {{ HTML::script('js/test.jquery.js') }}
   {{ HTML::script('ckeditor/ckeditor.js') }}
+  {{ HTML::script('yoxview/yoxview-init.js') }}
   <script>CKEDITOR.replace('content');</script>
 </head>
 <body>
@@ -28,6 +30,7 @@
           <ul class="nav pull-right">
             <li>{{ HTML::link('/', 'Home') }}</li>
             <li>{{ link_to_route('posts.index', 'Blog') }}</li>
+            <li>{{ link_to_route('gallery.index', 'Gallery') }}</li>
             @if(Auth::user())
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
