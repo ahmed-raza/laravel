@@ -21,17 +21,7 @@
     <?php if(Auth::user()->bio): ?>
       <p><?php echo Auth::user()->bio; ?></p>
     <?php endif; ?>
-
-    <?php echo Form::open(array('route'=>'gallery.store', 'files'=>true)); ?>
-
-    <?php echo Form::label('photo', 'Photo'); ?>
-
-    <?php echo Form::file('photo'); ?>
-
-    <?php echo Form::submit('Upload'); ?>
-
-    <?php echo Form::close(); ?>
-
+  </div>
 
 <?php $__env->stopSection(); ?>
 

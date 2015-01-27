@@ -22,11 +22,6 @@
     @if(Auth::user()->bio)
       <p>{{ Auth::user()->bio }}</p>
     @endif
-
-    {{ Form::open(array('route'=>'gallery.store', 'files'=>true)) }}
-    {{ Form::label('photo', 'Photo') }}
-    {{ Form::file('photo') }}
-    {{ Form::submit('Upload') }}
-    {{ Form::close() }}
+  </div>
 
 @endsection

@@ -7,8 +7,7 @@
     }
     public function save(){
       if (Request::ajax()) {
-        $name = Input::get('name');
-        return true;
+        return Response::json(Input::get('name'));
       }
     }
   }

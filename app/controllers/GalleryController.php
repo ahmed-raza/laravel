@@ -29,11 +29,14 @@ class GalleryController extends BaseController{
         $photo_name = Auth::user()->id."_".Input::file('photo')->getClientOriginalName();
         $uploadSuccess = $photo->move($destination, $photo_name);
         if ($uploadSuccess) {
-          return Redirect::route('gallery.index')->with('message','Image Upload successfully.');
+          return Redirect::route('gallery.index')->with('message','Image Uploaded successfully.');
         }
         else{
-          return Redirect::to('profile')->with('message', 'Failed to upload image.');
+          return Redirect::to('profile')->withErrors('Failed to upload image.');
         }
+      }
+      else{
+        return Redirect::to('profile')->withErrors('YOLO.');
       }
     }
 

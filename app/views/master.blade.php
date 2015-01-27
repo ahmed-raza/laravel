@@ -39,6 +39,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a href="{{ url('profile') }}"><i class="icon-user"></i> Profile</a></li>
+                <li><a href="{{ url('uploads') }}"><i class="icon-arrow-up"></i> Uploads</a></li>
                 @if(Auth::user()->user_rank == 'sadmin')
                 <li class="divider"></li>
                 <li><a href="{{ url('authors') }}"><i class="icon-pencil"></i> Authors</a></li>

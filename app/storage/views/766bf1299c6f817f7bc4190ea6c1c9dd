@@ -1,12 +1,18 @@
 <?php $__env->startSection('content'); ?>
 
-  <h1>Authors Home Page</h1>
-
-  <ul>
-  <?php foreach($authors as $author): ?>
-    <li><?php echo HTML::link('author/'.$author->id, $author->name); ?></li>
-  <?php endforeach; ?>
-  </ul>
+  <div class="span7">
+    <h1>Authors Home Page</h1>
+    <ul>
+    <?php foreach($authors as $author): ?>
+      <li><?php echo HTML::link('author/'.$author->id, $author->name); ?></li>
+    <?php endforeach; ?>
+    </ul>
+  </div>
+  <div class="span3">
+    <video id="video" width="400" controls>
+      <source src="videos/Bodybuilding.mp4" type="video/mp4">
+    </video>
+  </div>
 
 <?php $__env->stopSection(); ?>
 

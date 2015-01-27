@@ -53,6 +53,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a href="<?php echo url('profile'); ?>"><i class="icon-user"></i> Profile</a></li>
+                <li><a href="<?php echo url('uploads'); ?>"><i class="icon-arrow-up"></i> Uploads</a></li>
                 <?php if(Auth::user()->user_rank == 'sadmin'): ?>
                 <li class="divider"></li>
                 <li><a href="<?php echo url('authors'); ?>"><i class="icon-pencil"></i> Authors</a></li>

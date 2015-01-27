@@ -39,13 +39,17 @@ Route::get('user/{id}/delete', array('as'=>'delete_user', 'uses'=>'UserControlle
 Route::post('user/{id}/deleted', array('before'=>'csrf', 'uses'=>'UserController@userDeleted'));
 
 Route::get('test', array('as'=>'test', 'uses'=>'TestController@test'));
-Route::post('save', array('before'=>'csrf', 'uses'=>'TestController@save'));
+Route::post('save', array('uses'=>'TestController@save'));
 
 Route::group(array('before'=>'auth'), function(){
   Route::resource('posts', 'PostController');
 });
 Route::group(array('before'=>'auth'), function(){
   Route::resource('gallery', 'GalleryController');
+});
+
+Route::group(array('before'=>'auth'), function(){
+  Route::resource('uploads', 'UploadsController');
 });
 
 Route::get('blog/{slug}', function($slug){
