@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.40, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.41, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: laravel
 -- ------------------------------------------------------
--- Server version	5.5.40-0ubuntu0.14.04.1
+-- Server version	5.5.41-0ubuntu0.14.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,6 +14,34 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `audio`
+--
+
+DROP TABLE IF EXISTS `audio`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `audio` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `file_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `orig_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `audio`
+--
+
+LOCK TABLES `audio` WRITE;
+/*!40000 ALTER TABLE `audio` DISABLE KEYS */;
+INSERT INTO `audio` VALUES (1,2,'2_D-12_-_Shit_On_You.mp3','D-12 - Shit On You.mp3','0000-00-00 00:00:00','0000-00-00 00:00:00'),(2,2,'2_Eminem_-_6_In_The_Morning_(feat._D12).mp3','Eminem - 6 In The Morning (feat. D12).mp3','0000-00-00 00:00:00','0000-00-00 00:00:00');
+/*!40000 ALTER TABLE `audio` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `authors`
@@ -56,7 +84,7 @@ CREATE TABLE `gallery` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +93,7 @@ CREATE TABLE `gallery` (
 
 LOCK TABLES `gallery` WRITE;
 /*!40000 ALTER TABLE `gallery` DISABLE KEYS */;
-INSERT INTO `gallery` VALUES (7,1,'1_342854,xcitefun-lamborghini-huracan-lp610-4-3.jpg','2015-01-08 02:29:13','2015-01-08 02:29:13'),(8,1,'1_342855,xcitefun-lamborghini-huracan-lp610-4-2.jpg','2015-01-08 02:46:29','2015-01-08 02:46:29'),(9,1,'1_342856,xcitefun-lamborghini-huracan-lp610-4-1.jpg','2015-01-08 02:53:37','2015-01-08 02:53:37'),(10,2,'2_further_afield_slider_logo.png','2015-01-08 03:18:50','2015-01-08 03:18:50');
+INSERT INTO `gallery` VALUES (7,1,'1_342854,xcitefun-lamborghini-huracan-lp610-4-3.jpg','2015-01-08 02:29:13','2015-01-08 02:29:13'),(8,1,'1_342855,xcitefun-lamborghini-huracan-lp610-4-2.jpg','2015-01-08 02:46:29','2015-01-08 02:46:29'),(9,1,'1_342856,xcitefun-lamborghini-huracan-lp610-4-1.jpg','2015-01-08 02:53:37','2015-01-08 02:53:37'),(10,2,'2_further_afield_slider_logo.png','2015-01-08 03:18:50','2015-01-08 03:18:50'),(11,1,'1_Broken_Windows7.jpg','2015-01-27 01:50:29','2015-01-27 01:50:29'),(12,2,'2_10382311_10152582290058987_6674870770089566874_o.jpg','2015-01-27 02:22:07','2015-01-27 02:22:07');
 /*!40000 ALTER TABLE `gallery` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -88,7 +116,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES ('2014_09_19_072623_create_users_table',1),('2014_09_23_044730_create_authors_table',1),('2015_01_07_052936_create_posts_table',2),('2015_01_08_063507_create_gallery_table',3);
+INSERT INTO `migrations` VALUES ('2014_09_19_072623_create_users_table',1),('2014_09_23_044730_create_authors_table',1),('2015_01_07_052936_create_posts_table',2),('2015_01_08_063507_create_gallery_table',3),('2015_01_28_105134_create_audio_table',4);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,7 +181,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Admin','sadmin','ahmed.raza@square63.com','03244256607','Lahore','-1','Maecenas vestibulum eros sit amet eros pellentesque euismod? Integer sit amet ante sit amet nulla euismod bibendum. Nunc condimentum dignissim nunc vel consequat. Sed vitae condimentum odio; et hendrerit neque. Suspendisse et tempor risus. Cras eu sem in lacus luctus cursus consequat sit amet massa. Nam hendrerit venenatis nunc sed suscipit. Morbi auctor tempor diam ultricies viverra. Donec sagittis lectus eu malesuada mattis. Quisque libero elit, sagittis venenatis justo at, dignissim volutpat.\r\n','$2y$10$.wlZ7LZ4JAPHbsPLNevrvebhOG8Kit8FmYMKxxMYMGTU56C.SS50q','0000-00-00 00:00:00','2015-01-08 05:05:39','Vl85vXWu1LJFMvbTIWeaSfW06hnMIKPNOhl2gDNeX1hD2eqdEiz5L8L2HGUt'),(2,'Raza','user','raza1778@gmail.com','+92323456789','Lahore','-1','Vivamus euismod mauris. Vestibulum rutrum, mi nec elementum vehicula, eros quam gravida nisl, id fringilla neque ante vel mi. Vivamus quis mi. Mauris sollicitudin fermentum libero. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus.','$2y$10$DXNbJR8sK.aNEGY9EJAcy.JaMcuKDTZsS6V7U7W7oZf4Cm.CpH.BW','0000-00-00 00:00:00','2015-01-08 05:00:18','wmaY8xe5GtOjaccqNkgE7IVbWe1ZFgFOFBjkjwc9aAEPVQW0xG59bErGxwue');
+INSERT INTO `users` VALUES (1,'Admin','sadmin','ahmed.raza@square63.com','03244256607','Lahore','-1','Maecenas vestibulum eros sit amet eros pellentesque euismod? Integer sit amet ante sit amet nulla euismod bibendum. Nunc condimentum dignissim nunc vel consequat. Sed vitae condimentum odio; et hendrerit neque. Suspendisse et tempor risus. Cras eu sem in lacus luctus cursus consequat sit amet massa. Nam hendrerit venenatis nunc sed suscipit. Morbi auctor tempor diam ultricies viverra. Donec sagittis lectus eu malesuada mattis. Quisque libero elit, sagittis venenatis justo at, dignissim volutpat.\r\n','$2y$10$.wlZ7LZ4JAPHbsPLNevrvebhOG8Kit8FmYMKxxMYMGTU56C.SS50q','0000-00-00 00:00:00','2015-01-27 03:52:33','i9LogazEsdHK8Pvzp96hzSWJ8FhKz0cE9HPKgcbMTk9YkfLxNrwe6wvLPrNo'),(2,'Raza','user','raza1778@gmail.com','+92323456789','Lahore','-1','Vivamus euismod mauris. Vestibulum rutrum, mi nec elementum vehicula, eros quam gravida nisl, id fringilla neque ante vel mi. Vivamus quis mi. Mauris sollicitudin fermentum libero. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus.','$2y$10$DXNbJR8sK.aNEGY9EJAcy.JaMcuKDTZsS6V7U7W7oZf4Cm.CpH.BW','0000-00-00 00:00:00','2015-01-26 23:27:16','Wxr3JMo3Mtq0RMHoAbLwAEKRXgICrUzVWzbTsuXp1DT3bt9tbJByKAbzKZhf');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -166,4 +194,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-01-08 17:13:48
+-- Dump completed on 2015-01-28 16:42:11

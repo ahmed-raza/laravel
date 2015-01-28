@@ -14,5 +14,5 @@
       </div>
     </div>
   </div>
-
+  <img src="img/unnamed.png" alt="" class="star">
 @endsection
